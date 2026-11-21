@@ -9,27 +9,41 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<script>try{var t=localStorage.getItem("theme");if(t)document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
 </head>
 <body>
+<div id="progress"></div>
 <header><nav>
-  <a class="brand" href="#top">~/bahati</a>
-  <a href="#apropos"><span class="fr">À propos</span><span class="en">About</span></a>
-  <a href="#projets"><span class="fr">Réalisations</span><span class="en">Achievements</span></a>
-  <a href="#competences"><span class="fr">Compétences</span><span class="en">Skills</span></a>
-  <a href="#parcours"><span class="fr">Parcours</span><span class="en">Experience</span></a>
-  <a href="#contact">Contact</a>
-  <button class="lang" id="lang" aria-label="Changer de langue / Switch language">EN</button>
+  <a class="brand" href="#top">MB<span>.</span></a>
+  <button class="menu" id="menu" aria-expanded="false" aria-controls="links" aria-label="Menu">☰</button>
+  <div class="links" id="links">
+    <a href="#apropos"><span class="fr">À propos</span><span class="en">About</span></a>
+    <a href="#projets"><span class="fr">Réalisations</span><span class="en">Achievements</span></a>
+    <a href="#competences"><span class="fr">Compétences</span><span class="en">Skills</span></a>
+    <a href="#parcours"><span class="fr">Parcours</span><span class="en">Experience</span></a>
+    <a href="#contact">Contact</a>
+  </div>
+  <div class="tools">
+    <button class="icon" id="theme" aria-label="Changer de thème / Toggle theme">◐</button>
+    <button class="lang" id="lang" aria-label="Changer de langue / Switch language">EN</button>
+  </div>
 </nav></header>
 
 <main id="top">
-<section>
+<section class="hero" id="accueil">
   <span class="status"><span class="fr">Disponible — support TI et administration réseaux, Québec</span><span class="en">Available — IT support and network administration, Québec</span></span>
-  <h1>Maurice Bahati</h1>
+  <h1>Maurice <span class="grad">Bahati</span></h1>
   <p class="lead fr">Ingénieur en génie informatique, plus de 8 ans d’expérience en TIC. Support technique, réseaux et gestion de données, dans des environnements multiculturels et exigeants en confidentialité.</p>
   <p class="lead en">Computer engineer with more than 8 years of ICT experience. Technical support, networking and data management in multicultural environments with strict confidentiality requirements.</p>
   <a class="btn primary" href="#contact"><span class="fr">Me contacter</span><span class="en">Contact me</span></a>
   <a class="btn" href="cv.pdf"><span class="fr">Télécharger mon CV</span><span class="en">Download my CV</span></a>
   <a class="btn" href="#projets"><span class="fr">Voir mes réalisations</span><span class="en">See my work</span></a>
+  <div class="stats">
+    <div class="stat"><span class="num" data-count="8" data-suffix="+">8+</span><small class="fr">ans d’expérience TIC</small><small class="en">years in ICT</small></div>
+    <div class="stat"><span class="num" data-count="4">4</span><small class="fr">employeurs</small><small class="en">employers</small></div>
+    <div class="stat"><span class="num" data-count="3">3</span><small class="fr">certifications</small><small class="en">certifications</small></div>
+    <div class="stat"><span class="num" data-count="4">4</span><small class="fr">langues parlées</small><small class="en">languages spoken</small></div>
+  </div>
 </section>
 
 <section id="apropos">
@@ -169,16 +183,9 @@
   <a class="btn" href="https://www.linkedin.com/in/bahatibbm">LinkedIn</a>
 </section>
 </main>
+<button id="top-btn" aria-label="Haut de page / Back to top">↑</button>
 <footer>© 2026 Maurice Bahati · Québec</footer>
 
-<script>
-(function(){
-  var html=document.documentElement, btn=document.getElementById('lang');
-  function set(l){html.lang=l;btn.textContent=l==='fr'?'EN':'FR';try{localStorage.setItem('lang',l)}catch(e){}}
-  var saved=null;try{saved=localStorage.getItem('lang')}catch(e){}
-  set(saved||((navigator.language||'fr').slice(0,2)==='en'?'en':'fr'));
-  btn.addEventListener('click',function(){set(html.lang==='fr'?'en':'fr')});
-})();
-</script>
+<script src="script.js" defer></script>
 </body>
 </html>
